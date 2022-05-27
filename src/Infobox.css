@@ -1,14 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Pathway+Gothic+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 
 
 /*main container for cards*/
+
+.title {
+  color: white;
+  font-size: 25px;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  text-decoration:solid;
+  font-family: 'Kanit', sans-serif;
+ 
+  opacity: 0.75;
+  
+}
 .container {
     /*want to move cards to next line and maintain center alignment on resizing*/
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    text-decoration: solid;
     
   }
+
 
   /*each card is exchange info*/
   .card {
@@ -16,7 +32,7 @@
         background: rgba(255, 255, 255, 0.4);
         border-radius: 18px;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.9);
-        backdrop-filter: blur(5px);
+        backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(5px);
         border: 1px solid rgba(255, 255, 255, 0.3);
 

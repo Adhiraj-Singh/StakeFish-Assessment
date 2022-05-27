@@ -1,9 +1,15 @@
 import React, {useState, useEffect} from 'react'
+import Typed from 'react-typed'
+
+
 
 /*axios needed to use api url*/
 import axios from 'axios'
 
 import './Infobox.css'
+
+
+
 
 const Infobox = () => {
     const [data, setData] = useState(null)
@@ -18,18 +24,26 @@ const Infobox = () => {
         })
     }, [])
 
-    console.log(data)
 
     // Checking for error in API data extraction
-    if(!data) return null    
+    if(!data) return null 
+
+    
 
     return (
         <div className = 'Infobox'>
 
+            {/*Caption for website*/}
+            <div className='title'>
+            <h1>Learn more about...   <Typed strings = {['  Binance', '  FTX', '  Kraken']} typeSpeed={120} backSpeed={130} loop/> </h1>
+            </div>
+
             
+
             {/* The api info needed is for the first 10 cards only, stored in an array [0-9]*/}
             <div className = 'container'>
                 <div className='card'>
+
                     {/*logo of exchange*/}
                     <img id = "mylogo" src={data[0].image} alt=''/>
                     {/*name of exchange*/}
@@ -47,7 +61,9 @@ const Infobox = () => {
                     <p><strong>Trust Rank</strong> - #{data[0].trust_score_rank}</p>
 
                     {/*adding this text for call to action*/}
+                  
                     <h2>CLICK FOR MORE INFO</h2>
+                   
                 </div>
 
                 <div className='card'>
