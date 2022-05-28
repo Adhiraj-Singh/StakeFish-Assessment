@@ -1,234 +1,285 @@
-import React, {useState, useEffect} from 'react'
-import Typed from 'react-typed'
+import React, { useState, useEffect } from "react";
+import Typed from "react-typed";
 
 /*axios needed to use api url*/
-import axios from 'axios'
+import axios from "axios";
 
-import './Infobox.css'
+import "./Infobox.css";
 
 const Infobox = () => {
-    /*Calling API information*/
-    const [data, setData] = useState(null)
-    const url = 'https://api.coingecko.com/api/v3/exchanges?per_page=10';
-    
-    /*use url and set data, throw error if it fails*/
-    useEffect(()=> {
-        axios.get(url).then((response)=> {
-            setData(response.data)
-        }).catch((error)=> {
-            console.log(error)
-        })
-    }, [])
+  /*Calling API information*/
+  const [data, setData] = useState(null);
+  const url = "https://api.coingecko.com/api/v3/exchanges?per_page=10";
 
- 
-    // Checking for error in API data extraction
-    if(!data) return null 
+  /*use url and set data, throw error if it fails*/
+  useEffect(() => {
+    axios
+      .get(url)
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
-    return (
-        <div className = 'Infobox'>
+  // Checking for error in API data extraction
+  if (!data) return null;
 
-            {/*Caption for website*/}
-            <div className='title'>
-            <h1>Learn more about...   <Typed strings = {['  Binance', '  FTX', '  Kraken']} typeSpeed={120} backSpeed={130} loop/> </h1>
-            </div>
+  return (
+    <div className="Infobox">
+      {/*Caption for website*/}
+      <div className="title">
+        <h1>
+          Learn more about...{" "}
+          <Typed
+            strings={["  Binance", "  FTX", "  Kraken"]}
+            typeSpeed={120}
+            backSpeed={130}
+            loop
+          />{" "}
+        </h1>
+      </div>
 
-            
+      {/* The api info needed is for the first 10 cards only, stored in an array [0-9]*/}
+      <div className="container">
+        <div id="card1" className="card">
+          {/*logo of exchange*/}
+          <img id="mylogo1" src={data[0].image} alt="" />
+          {/*name of exchange*/}
+          <h1>{data[0].name}</h1>
 
-            {/* The api info needed is for the first 10 cards only, stored in an array [0-9]*/}
-            <div className = 'container'>
-                <div id = "card1" className='card' >
+          {/*Highlighting data type for ease of read using bold*/}
 
-                    {/*logo of exchange*/}
-                    <img id = "mylogo1" src={data[0].image} alt=''/>
-                    {/*name of exchange*/}
-                    <h1>{data[0].name}</h1>
+          {/*Country based*/}
+          <p>
+            <strong>Country</strong> - {data[0].country}
+          </p>
 
-                    {/*Highlighting data type for ease of read using bold*/}
-                    
-                    {/*Country based*/}
-                    <p><strong>Country</strong> - {data[0].country}</p>
-                    
-                    {/*url to exchange website*/}
-                    <p><strong>URL</strong> - {data[0].url}</p>
+          {/*url to exchange website*/}
+          <p>
+            <strong>URL</strong> - {data[0].url}
+          </p>
 
-                    {/*Ranking of the exchange*/}
-                    <p><strong>Trust Rank</strong> - #{data[0].trust_score_rank}</p>
+          {/*Ranking of the exchange*/}
+          <p>
+            <strong>Trust Rank</strong> - #{data[0].trust_score_rank}
+          </p>
 
-                    {/*adding this text for call to action*/}
-                  
-                    <h2>CLICK FOR MORE INFO</h2>
-                   
-                </div>
+          {/*adding this text for call to action*/}
 
-                <div className='card'>
-                    <img id = "mylogo2" src={data[1].image} alt=''/>
-
-                    <h1>{data[1].name}</h1>
-
-                    {/*Highlighting data type for ease of read*/}
-                    
-                    <p><strong>Country</strong> - {data[1].country}</p>
-                    
-                    <p><strong>URL</strong> - {data[1].url}</p>
-
-                    <p><strong>Trust Rank</strong> - #{data[1].trust_score_rank}</p>
-
-                    {/*adding this text for call to action*/}
-                    <h2>CLICK FOR MORE INFO</h2>
-                    
-                </div>
-
-                <div className='card'>
-                    <img id = "mylogo3" src={data[2].image} alt=''/>
-
-                    <h1>{data[2].name}</h1>
-
-                    {/*Highlighting data type for ease of read*/}
-                    
-                    <p><strong>Country</strong> - {data[2].country}</p>
-                    
-                    <p><strong>URL</strong> - {data[2].url}</p>
-
-                    <p><strong>Trust Rank</strong> - #{data[2].trust_score_rank}</p>
-
-                    {/*adding this text for call to action*/}
-                    <h2>CLICK FOR MORE INFO</h2>
-                    
-                </div>
-
-                <div className='card'>
-                    <img id = "mylogo4" src={data[3].image} alt=''/>
-
-                    <h1>{data[3].name}</h1>
-
-                    {/*Highlighting data type for ease of read*/}
-                    
-                    <p><strong>Country</strong> - {data[3].country}</p>
-                    
-                    <p><strong>URL</strong> - {data[3].url}</p>
-
-                    <p><strong>Trust Rank</strong> - #{data[3].trust_score_rank}</p>
-
-                    {/*adding this text for call to action*/}
-                    <h2>CLICK FOR MORE INFO</h2>
-                    
-                </div>
-
-                <div className='card'>
-                    <img id = "mylogo5" src={data[4].image} alt=''/>
-
-                    <h1>{data[4].name}</h1>
-
-                    {/*Highlighting data type for ease of read*/}
-                    
-                    <p><strong>Country</strong> - {data[4].country}</p>
-                    
-                    <p><strong>URL</strong> - {data[4].url}</p>
-
-                    <p><strong>Trust Rank</strong> - #{data[4].trust_score_rank}</p>
-
-                    {/*adding this text for call to action*/}
-                    <h2>CLICK FOR MORE INFO</h2>
-                    
-                </div>
-
-                <div className='card'>
-                    <img id = "mylogo6" src={data[5].image} alt=''/>
-
-                    <h1>{data[5].name}</h1>
-
-                    {/*Highlighting data type for ease of read*/}
-                    
-                    <p><strong>Country</strong> - {data[5].country}</p>
-                    
-                    <p><strong>URL</strong> - {data[5].url}</p>
-
-                    <p><strong>Trust Rank</strong> - #{data[5].trust_score_rank}</p>
-
-                    {/*adding this text for call to action*/}
-                    <h2>CLICK FOR MORE INFO</h2>
-                    
-                </div>
-
-                <div className='card'>
-                    <img id = "mylogo7" src={data[6].image} alt=''/>
-
-                    <h1>{data[6].name}</h1>
-
-                    {/*Highlighting data type for ease of read*/}
-                    
-                    <p><strong>Country</strong> - {data[6].country}</p>
-                    
-                    <p><strong>URL</strong> - {data[6].url}</p>
-
-                    <p><strong>Trust Rank</strong> - #{data[6].trust_score_rank}</p>
-
-                    {/*adding this text for call to action*/}
-                    <h2>CLICK FOR MORE INFO</h2>
-                    
-                </div>
-
-                <div className='card'>
-                    <img id = "mylogo8" src={data[7].image} alt=''/>
-
-                    <h1>{data[7].name}</h1>
-
-                    {/*Highlighting data type for ease of read*/}
-                    
-                    <p><strong>Country</strong> - {data[7].country}</p>
-                    
-                    <p><strong>URL</strong> - {data[7].url}</p>
-
-                    <p><strong>Trust Rank</strong> - #{data[7].trust_score_rank}</p>
-
-                    {/*adding this text for call to action*/}
-                    <h2>CLICK FOR MORE INFO</h2>
-                    
-                </div>
-
-                <div className='card'>
-                    <img id = "mylogo9" src={data[8].image} alt=''/>
-
-                    <h1>{data[8].name}</h1>
-
-                    {/*Highlighting data type for ease of read*/}
-                    
-                    <p><strong>Country</strong> - {data[8].country}</p>
-                    
-                    <p><strong>URL</strong> - {data[8].url}</p>
-
-                    <p><strong>Trust Rank</strong> - #{data[8].trust_score_rank}</p>
-
-                    {/*adding this text for call to action*/}
-                    <h2>CLICK FOR MORE INFO</h2>
-                    
-                </div>
-
-                <div className='card'>
-                    
-                    <img id = "mylogo10" src={data[9].image} alt=''/>
-
-                    <h1>{data[9].name}</h1>
-
-                    {/*Highlighting data type for ease of read*/}
-                    
-                    <p><strong>Country</strong> - {data[9].country}</p>
-                    
-                    <p><strong>URL</strong> - {data[9].url}</p>
-
-                    <p><strong>Trust Rank</strong> - #{data[9].trust_score_rank}</p>
-
-                    {/*adding this text for call to action*/}
-                    <h2>CLICK FOR MORE INFO</h2>
-                    
-                </div>
-
-            </div>
-
+          <h2>CLICK FOR MORE INFO</h2>
         </div>
 
-    )
-}
+        <div className="card">
+          <img id="mylogo2" src={data[1].image} alt="" />
 
-export default Infobox
+          <h1>{data[1].name}</h1>
 
+          {/*Highlighting data type for ease of read*/}
+
+          <p>
+            <strong>Country</strong> - {data[1].country}
+          </p>
+
+          <p>
+            <strong>URL</strong> - {data[1].url}
+          </p>
+
+          <p>
+            <strong>Trust Rank</strong> - #{data[1].trust_score_rank}
+          </p>
+
+          {/*adding this text for call to action*/}
+          <h2>CLICK FOR MORE INFO</h2>
+        </div>
+
+        <div className="card">
+          <img id="mylogo3" src={data[2].image} alt="" />
+
+          <h1>{data[2].name}</h1>
+
+          {/*Highlighting data type for ease of read*/}
+
+          <p>
+            <strong>Country</strong> - {data[2].country}
+          </p>
+
+          <p>
+            <strong>URL</strong> - {data[2].url}
+          </p>
+
+          <p>
+            <strong>Trust Rank</strong> - #{data[2].trust_score_rank}
+          </p>
+
+          {/*adding this text for call to action*/}
+          <h2>CLICK FOR MORE INFO</h2>
+        </div>
+
+        <div className="card">
+          <img id="mylogo4" src={data[3].image} alt="" />
+
+          <h1>{data[3].name}</h1>
+
+          {/*Highlighting data type for ease of read*/}
+
+          <p>
+            <strong>Country</strong> - {data[3].country}
+          </p>
+
+          <p>
+            <strong>URL</strong> - {data[3].url}
+          </p>
+
+          <p>
+            <strong>Trust Rank</strong> - #{data[3].trust_score_rank}
+          </p>
+
+          {/*adding this text for call to action*/}
+          <h2>CLICK FOR MORE INFO</h2>
+        </div>
+
+        <div className="card">
+          <img id="mylogo5" src={data[4].image} alt="" />
+
+          <h1>{data[4].name}</h1>
+
+          {/*Highlighting data type for ease of read*/}
+
+          <p>
+            <strong>Country</strong> - {data[4].country}
+          </p>
+
+          <p>
+            <strong>URL</strong> - {data[4].url}
+          </p>
+
+          <p>
+            <strong>Trust Rank</strong> - #{data[4].trust_score_rank}
+          </p>
+
+          {/*adding this text for call to action*/}
+          <h2>CLICK FOR MORE INFO</h2>
+        </div>
+
+        <div className="card">
+          <img id="mylogo6" src={data[5].image} alt="" />
+
+          <h1>{data[5].name}</h1>
+
+          {/*Highlighting data type for ease of read*/}
+
+          <p>
+            <strong>Country</strong> - {data[5].country}
+          </p>
+
+          <p>
+            <strong>URL</strong> - {data[5].url}
+          </p>
+
+          <p>
+            <strong>Trust Rank</strong> - #{data[5].trust_score_rank}
+          </p>
+
+          {/*adding this text for call to action*/}
+          <h2>CLICK FOR MORE INFO</h2>
+        </div>
+
+        <div className="card">
+          <img id="mylogo7" src={data[6].image} alt="" />
+
+          <h1>{data[6].name}</h1>
+
+          {/*Highlighting data type for ease of read*/}
+
+          <p>
+            <strong>Country</strong> - {data[6].country}
+          </p>
+
+          <p>
+            <strong>URL</strong> - {data[6].url}
+          </p>
+
+          <p>
+            <strong>Trust Rank</strong> - #{data[6].trust_score_rank}
+          </p>
+
+          {/*adding this text for call to action*/}
+          <h2>CLICK FOR MORE INFO</h2>
+        </div>
+
+        <div className="card">
+          <img id="mylogo8" src={data[7].image} alt="" />
+
+          <h1>{data[7].name}</h1>
+
+          {/*Highlighting data type for ease of read*/}
+
+          <p>
+            <strong>Country</strong> - {data[7].country}
+          </p>
+
+          <p>
+            <strong>URL</strong> - {data[7].url}
+          </p>
+
+          <p>
+            <strong>Trust Rank</strong> - #{data[7].trust_score_rank}
+          </p>
+
+          {/*adding this text for call to action*/}
+          <h2>CLICK FOR MORE INFO</h2>
+        </div>
+
+        <div className="card">
+          <img id="mylogo9" src={data[8].image} alt="" />
+
+          <h1>{data[8].name}</h1>
+
+          {/*Highlighting data type for ease of read*/}
+
+          <p>
+            <strong>Country</strong> - {data[8].country}
+          </p>
+
+          <p>
+            <strong>URL</strong> - {data[8].url}
+          </p>
+
+          <p>
+            <strong>Trust Rank</strong> - #{data[8].trust_score_rank}
+          </p>
+
+          {/*adding this text for call to action*/}
+          <h2>CLICK FOR MORE INFO</h2>
+        </div>
+
+        <div className="card">
+          <img id="mylogo10" src={data[9].image} alt="" />
+
+          <h1>{data[9].name}</h1>
+
+          {/*Highlighting data type for ease of read*/}
+
+          <p>
+            <strong>Country</strong> - {data[9].country}
+          </p>
+
+          <p>
+            <strong>URL</strong> - {data[9].url}
+          </p>
+
+          <p>
+            <strong>Trust Rank</strong> - #{data[9].trust_score_rank}
+          </p>
+
+          {/*adding this text for call to action*/}
+          <h2>CLICK FOR MORE INFO</h2>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Infobox;

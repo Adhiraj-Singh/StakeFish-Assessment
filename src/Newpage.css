@@ -1,34 +1,31 @@
 .newcontainer {
-    /*want to move cards to next line and maintain center alignment on resizing*/
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    
-  }
+  /*want to move cards to next line and maintain center alignment on resizing*/
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
-  /*each card is exchange info*/
-  .newcard {
-        /* glass panel look*/
-        background: rgba(255, 255, 255, 0.4);
-        border-radius: 18px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.9);
-        backdrop-filter: blur(6px);
-        -webkit-backdrop-filter: blur(5px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
+/*each card is exchange info*/
+.newcard {
+  /* glass panel look*/
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 18px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 
-        /*sizing*/
-        width: 300px;
-        height: 300px;
+  /*sizing*/
+  width: 300px;
+  height: 300px;
 
-        /*content positioning*/
-        justify-content: space-between;
-        align-content: center;
-        margin: 50px;
-        padding-top: 20px;
-        flex-wrap: wrap;
-        
+  /*content positioning*/
+  justify-content: space-between;
+  align-content: center;
+  margin: 50px;
+  padding-top: 20px;
+  flex-wrap: wrap;
 
-
-        /*transition timing setting*/
-        transition: all 1.4s;
-  }
+  /*transition timing setting*/
+  transition: all 1.4s;
+}
