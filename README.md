@@ -9,7 +9,7 @@
 ## To run the tests - command input - click on test - choose browser - run
 ### $ npx cypress open
 
-##Files in the final folder
+## Files in the final folder
 Src folder
 Asset folder
 Cypress folder
