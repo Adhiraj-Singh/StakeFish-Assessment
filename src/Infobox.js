@@ -7,6 +7,7 @@ import axios from 'axios'
 import './Infobox.css'
 
 const Infobox = () => {
+    /*Calling API information*/
     const [data, setData] = useState(null)
     const url = 'https://api.coingecko.com/api/v3/exchanges?per_page=10';
     
@@ -35,10 +36,10 @@ const Infobox = () => {
 
             {/* The api info needed is for the first 10 cards only, stored in an array [0-9]*/}
             <div className = 'container'>
-                <div className='card' >
+                <div id = "card1" className='card' >
 
                     {/*logo of exchange*/}
-                    <img id = "mylogo" src={data[0].image} alt=''/>
+                    <img id = "mylogo1" src={data[0].image} alt=''/>
                     {/*name of exchange*/}
                     <h1>{data[0].name}</h1>
 
@@ -60,7 +61,7 @@ const Infobox = () => {
                 </div>
 
                 <div className='card'>
-                    <img id = "mylogo" src={data[1].image} alt=''/>
+                    <img id = "mylogo2" src={data[1].image} alt=''/>
 
                     <h1>{data[1].name}</h1>
 
@@ -78,7 +79,7 @@ const Infobox = () => {
                 </div>
 
                 <div className='card'>
-                    <img id = "mylogo" src={data[2].image} alt=''/>
+                    <img id = "mylogo3" src={data[2].image} alt=''/>
 
                     <h1>{data[2].name}</h1>
 
@@ -96,7 +97,7 @@ const Infobox = () => {
                 </div>
 
                 <div className='card'>
-                    <img id = "mylogo" src={data[3].image} alt=''/>
+                    <img id = "mylogo4" src={data[3].image} alt=''/>
 
                     <h1>{data[3].name}</h1>
 
@@ -114,7 +115,7 @@ const Infobox = () => {
                 </div>
 
                 <div className='card'>
-                    <img id = "mylogo" src={data[4].image} alt=''/>
+                    <img id = "mylogo5" src={data[4].image} alt=''/>
 
                     <h1>{data[4].name}</h1>
 
@@ -132,7 +133,7 @@ const Infobox = () => {
                 </div>
 
                 <div className='card'>
-                    <img id = "mylogo" src={data[5].image} alt=''/>
+                    <img id = "mylogo6" src={data[5].image} alt=''/>
 
                     <h1>{data[5].name}</h1>
 
@@ -150,7 +151,7 @@ const Infobox = () => {
                 </div>
 
                 <div className='card'>
-                    <img id = "mylogo" src={data[6].image} alt=''/>
+                    <img id = "mylogo7" src={data[6].image} alt=''/>
 
                     <h1>{data[6].name}</h1>
 
@@ -168,7 +169,7 @@ const Infobox = () => {
                 </div>
 
                 <div className='card'>
-                    <img id = "mylogo" src={data[7].image} alt=''/>
+                    <img id = "mylogo8" src={data[7].image} alt=''/>
 
                     <h1>{data[7].name}</h1>
 
@@ -186,7 +187,7 @@ const Infobox = () => {
                 </div>
 
                 <div className='card'>
-                    <img id = "mylogo" src={data[8].image} alt=''/>
+                    <img id = "mylogo9" src={data[8].image} alt=''/>
 
                     <h1>{data[8].name}</h1>
 
@@ -205,7 +206,7 @@ const Infobox = () => {
 
                 <div className='card'>
                     
-                    <img id = "mylogo" src={data[9].image} alt=''/>
+                    <img id = "mylogo10" src={data[9].image} alt=''/>
 
                     <h1>{data[9].name}</h1>
 
