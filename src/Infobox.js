@@ -24,6 +24,12 @@ const Infobox = () => {
         })
     }, [])
 
+    const [isActive, setActive] = useState(false);
+
+    const toggleClass = () => {
+        setActive(!isActive);
+    };
+
 
     // Checking for error in API data extraction
     if(!data) return null 
@@ -42,7 +48,7 @@ const Infobox = () => {
 
             {/* The api info needed is for the first 10 cards only, stored in an array [0-9]*/}
             <div className = 'container'>
-                <div className='card'>
+                <div className={isActive ? 'cardexpand': 'card'} onClick={toggleClass} >
 
                     {/*logo of exchange*/}
                     <img id = "mylogo" src={data[0].image} alt=''/>
@@ -66,7 +72,7 @@ const Infobox = () => {
                    
                 </div>
 
-                <div className='card'>
+                <div className={isActive ? 'cardexpand': 'card'} onClick={toggleClass}>
                     <img id = "mylogo" src={data[1].image} alt=''/>
 
                     <h1>{data[1].name}</h1>
@@ -84,7 +90,7 @@ const Infobox = () => {
                     
                 </div>
 
-                <div className='card'>
+                <div className={isActive ? 'cardexpand': 'card'} onClick={toggleClass}>
                     <img id = "mylogo" src={data[2].image} alt=''/>
 
                     <h1>{data[2].name}</h1>
@@ -102,7 +108,7 @@ const Infobox = () => {
                     
                 </div>
 
-                <div className='card'>
+                <div className={isActive ? 'cardexpand': 'card'} onClick={toggleClass}>
                     <img id = "mylogo" src={data[3].image} alt=''/>
 
                     <h1>{data[3].name}</h1>
@@ -120,7 +126,7 @@ const Infobox = () => {
                     
                 </div>
 
-                <div className='card'>
+                <div className={isActive ? 'cardexpand': 'card'} onClick={toggleClass}>
                     <img id = "mylogo" src={data[4].image} alt=''/>
 
                     <h1>{data[4].name}</h1>
@@ -138,7 +144,7 @@ const Infobox = () => {
                     
                 </div>
 
-                <div className='card'>
+                <div className={isActive ? 'cardexpand': 'card'} onClick={toggleClass}>
                     <img id = "mylogo" src={data[5].image} alt=''/>
 
                     <h1>{data[5].name}</h1>
@@ -156,7 +162,7 @@ const Infobox = () => {
                     
                 </div>
 
-                <div className='card'>
+                <div className={isActive ? 'cardexpand': 'card'} onClick={toggleClass}>
                     <img id = "mylogo" src={data[6].image} alt=''/>
 
                     <h1>{data[6].name}</h1>
@@ -174,7 +180,7 @@ const Infobox = () => {
                     
                 </div>
 
-                <div className='card'>
+                <div className={isActive ? 'cardexpand': 'card'} onClick={toggleClass}>
                     <img id = "mylogo" src={data[7].image} alt=''/>
 
                     <h1>{data[7].name}</h1>
@@ -192,7 +198,7 @@ const Infobox = () => {
                     
                 </div>
 
-                <div className='card'>
+                <div className={isActive ? 'cardexpand': 'card'} onClick={toggleClass}>
                     <img id = "mylogo" src={data[8].image} alt=''/>
 
                     <h1>{data[8].name}</h1>
@@ -210,7 +216,7 @@ const Infobox = () => {
                     
                 </div>
 
-                <div className='card'>
+                <div className={isActive ? 'cardexpand': 'card'} onClick={toggleClass}>
                     
                     <img id = "mylogo" src={data[9].image} alt=''/>
 
